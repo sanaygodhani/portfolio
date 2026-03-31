@@ -1,4 +1,4 @@
-# Portfolio — React + Flask
+# Portfolio — React
 
 A reusable, dark-themed developer portfolio inspired by [unstructured.io](https://unstructured.io).  
 **Edit one file** (`frontend/src/config.js`) to make it completely yours.
