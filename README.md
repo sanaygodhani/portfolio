@@ -1,6 +1,6 @@
 # Portfolio — React
 
-A reusable, dark-themed developer portfolio inspired by [unstructured.io](https://unstructured.io).  
+A reusable, dark-themed developer portfolio.
 **Edit one file** (`frontend/src/config.js`) to make it completely yours.
 
 ```
