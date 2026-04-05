@@ -1,6 +1,6 @@
-# Portfolio — React + Flask
+# Portfolio — React
 
-A reusable, dark-themed developer portfolio inspired by [unstructured.io](https://unstructured.io).  
+A reusable, dark-themed developer portfolio.
 **Edit one file** (`frontend/src/config.js`) to make it completely yours.
 
 ```
@@ -28,7 +28,7 @@ portfolio/
 ### Step 1 — Clone the repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/portfolio.git
+git clone https://github.com/sanaygodhani/portfolio
 cd portfolio
 ```
 
@@ -51,46 +51,6 @@ npm run dev
 ```
 
 Visit **http://localhost:5173** — the site is live with hot reload.
-
----
-
-### Step 4 — Run the Flask backend (contact form)
-
-```bash
-cd backend
-
-# Create a virtual environment (keeps dependencies isolated)
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-
-pip install -r requirements.txt
-
-# Copy the env template and fill in your Gmail credentials
-cp .env.example .env
-```
-
-Edit `backend/.env`:
-
-```env
-MAIL_USER=you@gmail.com
-MAIL_PASS=xxxx-xxxx-xxxx-xxxx   # Gmail App Password (see below)
-RECIPIENT=you@gmail.com
-```
-
-**How to get a Gmail App Password:**
-1. Go to https://myaccount.google.com/security
-2. Enable **2-Step Verification** if not already on
-3. Go to https://myaccount.google.com/apppasswords
-4. Create a new app → copy the 16-character password into `MAIL_PASS`
-
-Start Flask:
-
-```bash
-python app.py
-```
-
-Flask runs on **http://localhost:5000**.  
-The Vite dev server automatically proxies `/api/*` calls there (configured in `vite.config.js`).
 
 ---
 
@@ -234,7 +194,6 @@ frontend/src/
 | Frontend framework | React 18 (Vite) | Fast dev server, minimal config |
 | Styling | Vanilla CSS + variables | No runtime overhead, easy to customise |
 | Animations | CSS keyframes + IntersectionObserver | No library dependency |
-| Backend | Flask 3 | Lightweight, easy to read |
 | Email | Python smtplib | Zero external email service needed |
 | Frontend deploy | GitHub Pages via gh-pages | Free, integrated with GitHub |
-| Backend deploy | Render | Free tier, auto HTTPS, reads Procfile |
+
