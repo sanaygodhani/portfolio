@@ -633,7 +633,7 @@ body {
 }
 
 .hero-mascot {
-  max-width: 420px;
+  max-width: 320px; /* Reduced from 420px */
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -668,19 +668,35 @@ body {
 
 @media (max-width: 1024px) {
   .hero-mascot {
-    max-width: 320px;
+    max-width: 240px; /* Reduced from 320px */
   }
 }
 
 @media (max-width: 768px) {
   .hero-mascot-wrapper {
-    right: 1.2rem;
-    bottom: -10px;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: -1rem; /* Pull stats row up slightly */
+    z-index: 10;
   }
   
   .hero-mascot {
-    max-width: 220px;
-    opacity: 0.7; /* Subtler on mobile to avoid crowding */
+    max-width: 160px; /* Smaller for mobile */
+    opacity: 0.8;
+  }
+
+  .hero-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding-bottom: 0;
   }
 }
 
