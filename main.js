@@ -504,7 +504,7 @@ function initBioScrollAnimation() {
   const bioText = config.bio;
   // Clear and inject spans per character
   bioContainer.innerHTML = bioText.split('').map((char, index) => {
-    if (char === ' ') return `<span class="char" data-index="${index}">&nbsp;</span>`;
+    if (char === ' ') return `<span class="char" data-index="${index}"> </span>`;
     return `<span class="char" data-index="${index}">${char}</span>`;
   }).join('');
 

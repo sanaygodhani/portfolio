@@ -678,16 +678,17 @@ body {
     right: auto;
     bottom: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
-    margin-top: 1rem;
-    margin-bottom: -1rem; /* Pull stats row up slightly */
+    margin-top: 1.5rem;
+    margin-bottom: -2.2rem; /* Pull stats row up to be just below mascot */
     z-index: 10;
+    padding-right: 1rem;
   }
   
   .hero-mascot {
-    max-width: 160px; /* Smaller for mobile */
-    opacity: 0.8;
+    max-width: 140px; /* Refined size for mobile side-alignment */
+    opacity: 0.9;
   }
 
   .hero-details {
@@ -937,6 +938,8 @@ body {
   font-weight: 400;
   color: var(--color-body-text);
   text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (min-width: 768px) {
