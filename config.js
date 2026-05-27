@@ -65,10 +65,23 @@ const config = {
     // ── WORK EXPERIENCE ────────────────────────────────────────
     experience: [
       {
+        company: "Freelance",
+        role: "Software Engineer",
+        location: "Surat, Gujarat",
+        date: "Apr 2026 – Present",
+        bullets: [
+          "Designed an immutable, append-only inventory ledger system that calculates stock levels dynamically (never storing mutablestock counts), preventing data drift and ensuring perfect audit trails for high-value scrap metal transactions.",
+          "Architected complex PostgreSQL schema with custom ENUM types, generated columns, strict CHECK constraints, and relationalforeign keys to manage containers, multi-step sales, expenses, and labor wages.",
+          "Implemented robust ACID-compliant transaction handling using PostgreSQL advisory locks to prevent race conditions and over-selling during simultaneous purchase requests.",
+          "Developed a dynamic profit calculation engine that aggregates revenue, container-specific expenses, labor costs, and wastedisposal to generate real-time P&L reports.",
+          "Integrated strict validation pipelines using Zod to ensure waste materials (plastic, sand) are strictly separated from revenue-generating metals (copper, aluminum, brass).",
+        ],
+      },
+      {
         company: "Nirmal Bang",
-        role: "Software Engineer Intern",
+        role: "Software Engineer",
         location: "Mumbai, Maharashtra",
-        date: "Dec 2025 – Present",
+        date: "Dec 2025 – Apr 2026",
         bullets: [
           "Architected and deployed a full-stack internal communication platform using Flask and SQL, featuring a dynamic template engine, role-based recipient selection, and real-time data hydration from the firm's production database.",
           "Engineered a robust backend API layer for template rendering and transactional email dispatch via smtplib and Flask-Mail, integrating directly with existing SQL infrastructure.",
