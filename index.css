@@ -824,19 +824,21 @@ html, body {
 
   /* Responsive Liquid Glass Nav */
   .liquid-glass-nav {
-    top: auto;
+    top: unset;
     bottom: 0;
     left: 0;
     transform: none;
     width: 100%;
     max-width: none;
-    padding: 12px 5px;
+    height: 64px;
+    padding: 0 5px;
     gap: 4px;
     box-shadow: 0px -4px 10px rgba(0,0,0,0.5);
     border: none;
     border-top: 3px solid var(--color-pudgy-orange);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     overflow-x: auto;
     /* Hide scrollbar for cleaner look */
     scrollbar-width: none; 
@@ -847,8 +849,9 @@ html, body {
   .liquid-glass-nav .nav-link {
     font-size: 12px;
     white-space: nowrap;
-    padding: 12px 6px;
+    padding: 0 6px;
     flex: 1;
+    height: 100%;
     text-align: center;
     /* Touch target size improvement */
     display: flex;
