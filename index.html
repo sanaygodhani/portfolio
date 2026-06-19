@@ -32,6 +32,7 @@
     <a href="#spread-skills" class="nav-link" data-index="3">Expertise</a>
     <a href="#spread-experience" class="nav-link" data-index="4">History</a>
     <a href="#spread-projects" class="nav-link" data-index="5">Projects</a>
+    <a href="#spread-hobbies" class="nav-link" data-index="6">Ventures</a>
   </nav>
 
   <!-- Persistent Rotated Contact Badge -->
@@ -47,15 +48,15 @@
     <!-- 1. HERO SECTION -->
     <section class="section-spread active" id="spread-hero" data-index="1">
       <div class="background-sun"></div>
-      <div class="asymmetric-grid">
-        <div class="content-col-40">
-          <h1 class="hero-name" id="hero-name-target">Sanay Godhani</h1>
-          <p class="editorial-body" id="hero-tagline-target" style="font-size: 20px; font-weight: 500; margin-bottom: 24px; color: var(--color-text);">
-            Engineering intelligence at production scale.
-          </p>
-        </div>
-        <div class="artwork-col-60">
-          <div class="hero-wave-wrapper">
+      <div class="hero-full-content">
+        <h1 class="hero-name" id="hero-name-target">
+          <span class="name-line line-solid">SANAY</span>
+          <span class="name-line line-outline">GODHANI</span>
+        </h1>
+        <p class="editorial-body" id="hero-tagline-target" style="font-size: 20px; font-weight: 500; margin-bottom: 24px; color: var(--color-text);">
+          Engineering intelligence at production scale.
+        </p>
+        <div class="hero-wave-wrapper">
             <!-- SVG Wave Illustration exiting viewport -->
             <svg width="100%" height="100%" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Giant Sun in background of illustration -->
@@ -70,9 +71,8 @@
               <path d="M 120 150 Q 135 135 150 150 Q 165 135 180 150" stroke="#1E1E1E" stroke-width="2" fill="none"/>
             </svg>
           </div>
-        </div>
       </div>
-    </section>
+  </section>
 
     <!-- 2. BIO & PROFILE SECTION -->
     <section class="section-spread" id="spread-bio" data-index="2">
@@ -175,8 +175,24 @@
       </div>
     </section>
 
-    <!-- 6. CONTACT / CTA SECTION -->
-    <section class="section-spread" id="spread-contact" data-index="6">
+    <!-- 6. HOBBIES & VENTURES SECTION -->
+    <section class="section-spread" id="spread-hobbies" data-index="6">
+      <div class="background-sun" style="left: auto; right: 5%; background: var(--color-palm-green); opacity: 0.05;"></div>
+      <div class="asymmetric-grid">
+        <div class="content-col-30">
+          <h2 class="editorial-title">Beyond Engineering</h2>
+          <p class="editorial-body">Ventures and creative pursuits that capture my entrepreneurial spirit and focus outside of core engineering.</p>
+        </div>
+        <div class="artwork-col-70" style="height: 85%;">
+          <div class="hobbies-grid" id="hobbies-grid-target">
+            <!-- Hobbies loaded dynamically as vintage postage stamps -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CONTACT / CTA SECTION -->
+    <section class="section-spread" id="spread-contact" data-index="7">
       <div class="sunset-cta-container">
         <div class="sunset-bg-motifs">
           <svg width="100%" height="100%" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -233,7 +249,7 @@
         </svg>
       </button>
 
-      <span class="pagination-counter" id="pagination-counter">1 / 6</span>
+      <span class="pagination-counter" id="pagination-counter">1 / 7</span>
 
       <button class="solid-circle-action-button" id="next-btn" aria-label="Next Section">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">

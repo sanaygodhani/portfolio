@@ -144,6 +144,31 @@ const config = {
       interests: ["Deep Learning", "Automation", "RAG Architectures", "LLM Fine-Tuning", "Ecological Modelling"],
     },
   
+    // ── HOBBIES & VENTURES ──────────────────────────────────────
+    hobbies: [
+      {
+        name: "Indrith Studio",
+        role: "Founder",
+        details: "Launching an independent studio dedicated to crafting immersive interactive applications, game worlds, and physics simulations.",
+        stampColor: "var(--color-sunset-coral)",
+        date: "EST. 2026"
+      },
+      {
+        name: "Generative Art",
+        role: "Creative Coder",
+        details: "Developing real-time, beat-reactive visualizers and graphics simulations using OpenGL, GLSL, and Librosa.",
+        stampColor: "var(--color-warm-gold)",
+        date: "3D AUDIO"
+      },
+      {
+        name: "Open Source",
+        role: "Contributor",
+        details: "Building developer tooling, custom automation pipelines, and scripting plugins to streamline developer environments.",
+        stampColor: "var(--color-palm-green)",
+        date: "SCRIPTS"
+      }
+    ],
+  
     // ── TICKER (scrolling banner) ───────────────────────────────
     // Words that scroll across the ticker strip between hero and skills
     ticker: [

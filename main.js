@@ -19,7 +19,10 @@ function initDynamicHydration() {
   
   const heroNameTarget = document.getElementById('hero-name-target');
   if (heroNameTarget) {
-    heroNameTarget.innerHTML = `Sanay <span>Godhani</span>`;
+    heroNameTarget.innerHTML = `
+      <span class="name-line line-solid">SANAY</span>
+      <span class="name-line line-outline">GODHANI</span>
+    `;
   }
   
   const heroTaglineTarget = document.getElementById('hero-tagline-target');
@@ -135,6 +138,32 @@ function initDynamicHydration() {
           </div>
           <div class="project-stack">${proj.stack.join('  /  ')}</div>
         </a>
+      `;
+    }).join('');
+  }
+
+  // Hobbies List (Vintage Postage Stamps)
+  const hobbiesTarget = document.getElementById('hobbies-grid-target');
+  if (hobbiesTarget && config.hobbies && Array.isArray(config.hobbies)) {
+    hobbiesTarget.innerHTML = config.hobbies.map(hobby => {
+      const isFeatured = hobby.name === "Indrith Studio";
+      return `
+        <div class="stamp-card${isFeatured ? ' featured' : ''}" style="--stamp-color: ${hobby.stampColor};">
+          <div class="stamp-inner-border"></div>
+          <!-- Simulated corner punch holes -->
+          <div class="stamp-perforations-side left"></div>
+          <div class="stamp-perforations-side right"></div>
+          <div class="stamp-postmark" style="--stamp-color: ${hobby.stampColor};">${hobby.name}</div>
+          <div class="stamp-header">
+            <span class="stamp-price" style="--stamp-color: ${hobby.stampColor};">50¢</span>
+            <span class="stamp-date">${hobby.date}</span>
+          </div>
+          <div class="stamp-body">
+            <h3 class="stamp-title">${hobby.name}</h3>
+            <div class="stamp-role" style="--stamp-color: ${hobby.stampColor};">${hobby.role}</div>
+            <p class="stamp-details">${hobby.details}</p>
+          </div>
+        </div>
       `;
     }).join('');
   }
@@ -298,6 +327,7 @@ function initEasterEggs() {
     nameLabel.addEventListener('click', () => {
       const insights = [
         "Carleton CS Graduate (Major in BCS, Minor in Stats)",
+        "Founder of Indrith Studio - building interactive game worlds and physics simulations!",
         "40% Better Survival Rates in Multi-Agent RL",
         "1,000+ simulation episodes designed in NumPy & PPO!",
         "Flask & Redis template engines deployed at leading Mumbai brokings",
