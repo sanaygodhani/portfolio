@@ -36,27 +36,27 @@ const config = {
     // Each card has a category label, a title, and a list of tags
     skills: [
       {
-        category: ">_Languages & 🧩Frameworks",
+        category: "[SYSTEM_LANGUAGES]",
         title: "Full-Stack Development",
         tags: ["Python", "Java", "C++", "Spring Boot", "ReactJS", "NodeJS", "JavaScript", "Flask", "Django"],
       },
       {
-        category: "📈Data & 🤖ML",
+        category: "[MACHINE_LEARNING]",
         title: "Machine Learning",
         tags: ["TensorFlow", "Pandas", "NumPy", "Scikit-Learn", "PPO", "Actor-Critic", "Q-Learning"],
       },
       {
-        category: "🌐Infrastructure & 🛠️Tools",
+        category: "[INFRASTRUCTURE_&_TOOLS]",
         title: "DevOps & Tooling",
         tags: ["Redis", "Git", "GitHub", "REST APIs", "Docker", "Bash", "VS Code", "Postman"],
       },
       {
-        category: "⛁Databases",
+        category: "[DATA_STORAGE]",
         title: "Data Storage",
         tags: ["SQL", "PostgreSQL", "Schema Design", "Query Optimization", "ORM"],
       },
       {
-        category: "💡Interests",
+        category: "[RESEARCH_&_AI]",
         title: "AI / Research",
         tags: ["Deep Learning", "Automation", "RAG Architectures", "LLM Fine-Tuning"],
       },

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
   <!-- SEO Meta Tags -->
   <title>Sanay Godhani — Software Engineer & ML Practitioner</title>
   <meta name="description" content="Portfolio of Sanay Godhani, a Software Engineer with expertise in full-stack development, ML systems, and data pipelines. CS graduate from Carleton University.">
-  <meta name="keywords" content="Sanay Godhani, Software Engineer, Machine Learning, Reinforcement Learning, Full Stack Developer, Toronto, Carleton University">
+  <meta name="keywords" content="Sanay Godhani, Software Engineer, Machine Learning, Reinforcement Learning, Full Stack Developer, Carleton University">
   <meta name="author" content="Sanay Godhani">
   
   <!-- Open Graph / Facebook -->
@@ -15,261 +15,221 @@
   <meta property="og:title" content="Sanay Godhani — Software Engineer & ML Practitioner">
   <meta property="og:description" content="Portfolio of Sanay Godhani. Specializing in full-stack development, ML systems, and data pipelines.">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts (Share Tech Mono & JetBrains Mono for Brutalist Terminal) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
 
-  <!-- Premium SVGs and Noise filter -->
-  <svg style="position: absolute; width: 0; height: 0; pointer-events: none;" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-    <filter id="noiseFilter">
-      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
-      <feColorMatrix type="matrix" values="0 0 0 0 0.88   0 0 0 0 0.88   0 0 0 0 0.80   0 0 0 0.12 0" />
-    </filter>
-  </svg>
-  
-  <!-- Dynamic Texture Overlay -->
-  <div class="noise-overlay" aria-hidden="true"></div>
+  <!-- Floating Liquid Glass Nav Bar -->
+  <nav class="liquid-glass-nav" id="liquid-nav">
+    <a href="#spread-hero" class="nav-link active" data-index="1">[HOME]</a>
+    <a href="#spread-bio" class="nav-link" data-index="2">[BIO]</a>
+    <a href="#spread-skills" class="nav-link" data-index="3">[STACK]</a>
+    <a href="#spread-experience" class="nav-link" data-index="4">[HISTORY]</a>
+    <a href="#spread-projects" class="nav-link" data-index="5">[SYSTEMS]</a>
+  </nav>
 
-  <!-- Header / Navigation -->
-  <header class="header">
-    <div class="header-container">
-      <a href="#hero" class="logo" id="nav-logo">
-        <span class="logo-text">Sanay G.</span>
-      </a>
-      
+  <!-- Brutalist Scanline & Industrial Grid Overlay -->
+  <div class="brutalist-grid-overlay"></div>
 
-
-      <nav class="nav-links" id="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="cta-btn group nav-contact-btn">
-          <span class="cta-label">Contact</span>
-          <div class="icon-circle">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6464L9.29289 5H5.5C5.22386 5 5 4.77614 5 4.5C5 4.22386 5.22386 4 5.5 4H10.5C10.7761 4 11 4.22386 11 4.5V9.5C11 9.77614 10.7761 10 10.5 10C10.2239 10 10 9.77614 10 9.5V5.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z" fill="black"/>
-            </svg>
-          </div>
-        </a>
-      </nav>
-
-      <!-- Theme Toggle -->
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
-        <span class="theme-label">Theme</span>
-        <div class="icon-circle">
-          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        </div>
-      </button>
-      
-      <!-- Mobile menu trigger -->
-      <button class="mobile-menu-toggle" id="mobile-toggle" aria-label="Toggle menu">
-        <span class="toggle-bar"></span>
-        <span class="toggle-bar"></span>
-      </button>
+  <!-- Persistent Rotated Frosted Contact Badge -->
+  <a href="#spread-contact" class="rotated-contact-badge" id="contact-badge">
+    <div class="badge-content">
+      <span>Contact →</span>
     </div>
-  </header>
+  </a>
 
-  <!-- Mobile Overlay Menu -->
-  <div class="mobile-menu" id="mobile-menu">
-    <nav class="mobile-nav-links">
-      <a href="#about" class="mobile-link">About</a>
-      <a href="#skills" class="mobile-link">Skills</a>
-      <a href="#experience" class="mobile-link">Experience</a>
-      <a href="#projects" class="mobile-link">Projects</a>
-      <a href="#contact" class="mobile-link">Contact</a>
-    </nav>
-  </div>
+  <!-- Main Scroll Container with Scroll Snapping -->
+  <main class="spread-container" id="spread-container">
+    
+    <!-- 1. HERO MASTHEAD LOCKUP -->
+    <section class="section-spread active" id="spread-hero" data-index="1">
+      <div class="glass-panel hero-masthead">
+        <h1 class="hero-name" id="hero-name-target">Sanay Godhani</h1>
+        <!-- Hero center marker -->
+        <div class="brutalist-corner-ticks"></div>
+      </div>
+    </section>
 
-  <main>
-    <!-- 1. Hero Section -->
-    <section id="hero" class="hero-section">
-      <div class="hero-bg-overlay dark-bg" id="hero-bg-dark"></div>
-      <div class="hero-bg-overlay light-bg" id="hero-bg-light"></div>
-      <div class="hero-vignette"></div>
-      
-      <div class="hero-content">
-        <!-- Giant Heading -->
-        <div class="hero-heading-container">
-          <h1 class="hero-title" id="hero-title">
-            <span id="hero-name-target">Sanay G.</span><span class="asterisk" id="hero-asterisk" role="button" aria-label="Click for easter egg">*</span>
-          </h1>
-        </div>
-        
-        <!-- Info column block: Tagline & Mascot -->
-        <div class="hero-details">
-          <div class="hero-tagline-wrapper fade-up-element" id="hero-tagline-container">
-            <!-- Dynamic tagline lines inserted here -->
+    <!-- 2. PROFILE & BIO (Split-Screen Ice Block Glass Panels) -->
+    <section class="section-spread split-screen" id="spread-bio" data-index="2">
+      <div class="split-left">
+        <div class="glass-panel">
+          <div class="split-padding flex-col-between">
+            <span class="panel-label">Profile / Bio</span>
+            <div class="bio-content-wrapper">
+              <h2 class="editorial-title" id="about-heading-target">Think distributed, act atomic.</h2>
+              <p class="editorial-body" id="about-bio-target">
+                Software Engineer with expertise in full-stack development, ML systems, and data pipelines. CS graduate from Carleton University.
+              </p>
+            </div>
+            <div></div> <!-- spacer -->
           </div>
-          
-          <div class="hero-mascot-wrapper fade-up-element">
-            <img src="./assets/mascot.png" alt="Mascot" class="hero-mascot">
+          <!-- Left panel spacer -->
+        </div>
+      </div>
+      <div class="split-right">
+        <div class="glass-panel split-padding flex-col-between text-right">
+          <span class="section-label">/Overview</span>
+          <div class="stats-grid" id="hero-stats-target">
+            <!-- stats loaded dynamically -->
+          </div>
+          <div></div> <!-- spacer -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TECHNICAL EXPERTISE (Split-Screen Ice Block Glass Panels) -->
+    <section class="section-spread split-screen" id="spread-skills" data-index="3">
+      <div class="split-left">
+        <div class="glass-panel">
+          <div class="split-padding flex-col-between">
+            <span class="panel-label">Expertise / Stack</span>
+            <div class="skills-intro">
+              <h2 class="editorial-title">Architectural Capabilities</h2>
+              <p class="editorial-body">Custom templates and robust systems designed for performance and scale.</p>
+            </div>
+            <div></div> <!-- spacer -->
+          </div>
+          <!-- Left panel spacer -->
+        </div>
+      </div>
+      <div class="split-right">
+        <div class="glass-panel split-padding flex-col-between text-right">
+          <span class="section-label">/Technical Skills</span>
+          <div class="skills-editorial-list" id="skills-grid-target">
+            <!-- skills loaded dynamically -->
+          </div>
+          <div></div> <!-- spacer -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PROFESSIONAL HISTORY (Split-Screen Ice Block Glass Panels) -->
+    <section class="section-spread split-screen" id="spread-experience" data-index="4">
+      <div class="split-left">
+        <div class="glass-panel">
+          <div class="split-padding flex-col-between">
+            <div>
+              <span class="panel-label">History / Timeline</span>
+              <div class="experience-intro">
+                <h2 class="editorial-title">Professional Milestones</h2>
+              </div>
+            </div>
+            <!-- Terminal Selection Menu -->
+            <div class="terminal-menu" id="exp-menu-target">
+              <!-- Populated dynamically by main.js -->
+            </div>
           </div>
         </div>
-        
-        <!-- Stats bar at the bottom -->
-        <div class="hero-stats-row" id="hero-stats-target">
-          <!-- Hydrated dynamically -->
+      </div>
+      <div class="split-right">
+        <div class="glass-panel split-padding flex-col-between text-right">
+          <span class="section-label">/Experience</span>
+          <div class="experience-editorial-list" id="timeline-target">
+            <!-- Selected experience loaded dynamically with animation -->
+          </div>
+          <div class="education-editorial-section" id="education-target">
+            <!-- education loaded dynamically -->
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. Infinite Ticker ribbon -->
-    <div class="ticker-section">
-      <div class="ticker-wrapper" id="ticker-target">
-        <!-- Scrolling content dynamically built -->
-      </div>
-    </div>
-
-    <!-- 3. About Section -->
-    <section id="about" class="about-section section-padding">
-      <div class="section-container">
-        <!-- Multi-style dynamic heading -->
-        <h2 class="about-heading" id="about-heading-target" data-words-pull-up>
-          <!-- Loaded dynamically from config.tagline -->
-        </h2>
-        
-        <!-- Scroll-linked character reveal paragraph -->
-        <div class="about-bio-container">
-          <p class="about-bio" id="about-bio-target">
-            <!-- Splitted and hydrated per character -->
-          </p>
+    <!-- 5. SELECTED PROJECTS (Split-Screen Ice Block Glass Panels) -->
+    <section class="section-spread split-screen" id="spread-projects" data-index="5">
+      <div class="split-left">
+        <div class="glass-panel">
+          <div class="split-padding flex-col-between">
+            <span class="panel-label">Selected Systems</span>
+            <div class="projects-intro">
+              <h2 class="editorial-title">Code & Research Releases</h2>
+            </div>
+            <div></div> <!-- spacer -->
+          </div>
+          <!-- Left panel spacer -->
         </div>
-
-        <!-- School Cards / Education details -->
-        <div class="education-block" id="education-target">
-          <!-- Dynamically populated education profile -->
+      </div>
+      <div class="split-right">
+        <div class="glass-panel split-padding flex-col-between text-right">
+          <span class="section-label">/Projects</span>
+          <div class="projects-editorial-list" id="projects-grid-target">
+            <!-- projects loaded dynamically -->
+          </div>
+          <div></div> <!-- spacer -->
         </div>
       </div>
     </section>
 
-    <!-- 4. Skills Section -->
-    <section id="skills" class="skills-section section-padding">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-number">01.</span>
-          <h2 class="section-title">
-            <span class="cream-line">Technical Expertise</span>
-            <span class="gray-line">Architectural Capabilities</span>
-          </h2>
-        </div>
+    <!-- 6. CONTACT STUDIO -->
+    <section class="section-spread" id="spread-contact" data-index="6">
+      <div class="glass-panel contact-spread-container">
+        <span class="section-label-top">/Get In Touch</span>
         
-        <div class="skills-grid" id="skills-grid-target">
-          <!-- Categorized feature cards loaded here -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Experience Section -->
-    <section id="experience" class="experience-section section-padding">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-number">02.</span>
-          <h2 class="section-title">
-            <span class="cream-line">Professional History</span>
-            <span class="gray-line">Production Milestones</span>
-          </h2>
-        </div>
-        
-        <div class="timeline" id="timeline-target">
-          <!-- Chronological experience items hydrated dynamically -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Projects Section -->
-    <section id="projects" class="projects-section section-padding">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-number">03.</span>
-          <h2 class="section-title">
-            <span class="cream-line">Selected Systems</span>
-            <span class="gray-line">Code & Research Releases</span>
-          </h2>
-        </div>
-        
-        <div class="projects-grid" id="projects-grid-target">
-          <!-- Project modules hydrated here -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Contact Section -->
-    <section id="contact" class="contact-section section-padding">
-      <div class="section-container">
-        <div class="section-header">
-          <span class="section-number">04.</span>
-          <h2 class="section-title">
-            <span class="cream-line">Get in Touch</span>
-            <span class="gray-line">Start a Conversation</span>
-          </h2>
-        </div>
-        
-        <div class="contact-layout">
-          <!-- Social connections, email, phone -->
-          <div class="contact-details">
-            <h3 class="contact-subheading">Contact Information</h3>
-            <p class="contact-desc">
-              Have an interesting project, job opportunity, or simply want to talk tech? Reach out through any of these channels or drop a direct message.
-            </p>
-            <div class="contact-links" id="contact-details-target">
-              <!-- Dynamically hydrated email, phone, social links -->
+        <div class="contact-editorial-layout">
+          <div class="contact-info-panel">
+            <h2 class="editorial-title">Start a Conversation</h2>
+            <div class="contact-direct-links" id="contact-details-target">
+              <!-- filled dynamically -->
+            </div>
+            <!-- Extra info or system status -->
+            <div class="system-status-indicator" id="footer-easter-egg">
+              SYS_STATUS: READY
             </div>
           </div>
           
-          <!-- Modern Message form -->
-          <div class="contact-form-container">
-            <form class="contact-form" id="contact-form">
-              <div class="form-group">
-                <label for="form-name" class="form-label">Full Name</label>
-                <input type="text" id="form-name" name="from_name" class="form-input" placeholder="Your Name" required>
+          <div class="contact-form-panel">
+            <form class="editorial-contact-form" id="contact-form">
+              <div class="form-field-row">
+                <input type="text" id="form-name" name="from_name" class="editorial-input" placeholder="Your Name" required>
               </div>
-              <div class="form-group">
-                <label for="form-email" class="form-label">Email Address</label>
-                <input type="email" id="form-email" name="from_email" class="form-input" placeholder="you@example.com" required>
+              <div class="form-field-row">
+                <input type="email" id="form-email" name="from_email" class="editorial-input" placeholder="Email Address" required>
               </div>
-              <div class="form-group">
-                <label for="form-message" class="form-label">Your Message</label>
-                <textarea id="form-message" name="message" class="form-input form-textarea" placeholder="Describe your project or role..." rows="5" required></textarea>
+              <div class="form-field-row">
+                <textarea id="form-message" name="message" class="editorial-textarea" placeholder="Describe your project or role..." rows="4" required></textarea>
               </div>
-              <button type="submit" class="form-submit-btn">
-                <span class="submit-label">Send Message</span>
-                <span class="submit-spinner"></span>
-              </button>
-              <div class="form-status" id="form-status"></div>
+              
+              <div class="form-submit-row">
+                <button type="submit" class="editorial-submit-btn">
+                  <span>Send Transmission</span>
+                </button>
+                <div class="form-status" id="form-status"></div>
+              </div>
             </form>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-left">
-        <span class="footer-brand" id="footer-brand-text">Sanay Godhani</span>
-        <div class="footer-legal">
-          <a href="#" class="footer-link">Privacy Policy</a>
-          <span class="footer-separator">•</span>
-          <a href="#" class="footer-link">Terms of Service</a>
-        </div>
-        <span class="footer-copy">&copy; <span id="current-year">2026</span>. All rights reserved.</span>
-      </div>
-      <div class="footer-right">
-        <span class="footer-time" id="local-time-target">Local Time: --:--</span>
-        <span class="footer-easter-egg" id="footer-easter-egg">Made with precision</span>
-      </div>
+  <!-- Section Pagination Wayfinding Strip (Anchored Bottom) -->
+  <div class="pagination-strip">
+    <div class="pagination-container">
+      <!-- Secondary backward-navigation -->
+      <button class="hairline-arrow-control" id="prev-btn" aria-label="Previous Section">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Center counter -->
+      <span class="pagination-counter" id="pagination-counter">1 / 6</span>
+
+      <!-- Primary forward-navigation control -->
+      <button class="solid-circle-action-button" id="next-btn" aria-label="Next Section">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </button>
     </div>
-  </footer>
+  </div>
 
   <!-- Main JavaScript Bundle -->
   <script type="module" src="./main.js"></script>
