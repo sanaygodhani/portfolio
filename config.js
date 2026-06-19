@@ -7,8 +7,8 @@ const config = {
 
     // ── PERSONAL INFO ─────────────────────────────────────────
     name: "Sanay Godhani",
-    heroTagline: ["Think distributed", "act atomic."],  // Tagline displayed in the Hero section
-    aboutTagline: ["Engineering intelligence", "at production scale.", "Robust. Fast. Reliable."],  // Tagline displayed in the About section heading
+    heroTagline: ["Engineering intelligence", "at production scale."],  // Tagline displayed in the Hero section
+    aboutTagline: ["Think distributed,", "act atomic."],  // Tagline displayed in the About section heading
     bio: "Software Engineer with expertise in full-stack development, ML systems, and data pipelines. CS graduate from Carleton University.",
     location: "Toronto, ON",
     email: "sanaygodhani@cmail.carleton.ca",

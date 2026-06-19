@@ -15,214 +15,226 @@
   <meta property="og:title" content="Sanay Godhani — Software Engineer & ML Practitioner">
   <meta property="og:description" content="Portfolio of Sanay Godhani. Specializing in full-stack development, ML systems, and data pipelines.">
   
-  <!-- Google Fonts (Share Tech Mono & JetBrains Mono for Brutalist Terminal) -->
+  <!-- Google Fonts (Space Grotesk & Inter for Retro Travel Poster Theme) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
 
-  <!-- Floating Liquid Glass Nav Bar -->
+  <!-- Floating Retro Capsule Navigation -->
   <nav class="liquid-glass-nav" id="liquid-nav">
-    <a href="#spread-hero" class="nav-link active" data-index="1">[HOME]</a>
-    <a href="#spread-bio" class="nav-link" data-index="2">[BIO]</a>
-    <a href="#spread-skills" class="nav-link" data-index="3">[STACK]</a>
-    <a href="#spread-experience" class="nav-link" data-index="4">[HISTORY]</a>
-    <a href="#spread-projects" class="nav-link" data-index="5">[SYSTEMS]</a>
+    <a href="#spread-hero" class="nav-link active" data-index="1">Home</a>
+    <a href="#spread-bio" class="nav-link" data-index="2">Bio</a>
+    <a href="#spread-skills" class="nav-link" data-index="3">Expertise</a>
+    <a href="#spread-experience" class="nav-link" data-index="4">History</a>
+    <a href="#spread-projects" class="nav-link" data-index="5">Projects</a>
   </nav>
 
-  <!-- Brutalist Scanline & Industrial Grid Overlay -->
-  <div class="brutalist-grid-overlay"></div>
-
-  <!-- Persistent Rotated Frosted Contact Badge -->
+  <!-- Persistent Rotated Contact Badge -->
   <a href="#spread-contact" class="rotated-contact-badge" id="contact-badge">
     <div class="badge-content">
-      <span>Contact →</span>
+      <span>Let's talk →</span>
     </div>
   </a>
 
   <!-- Main Scroll Container with Scroll Snapping -->
   <main class="spread-container" id="spread-container">
     
-    <!-- 1. HERO MASTHEAD LOCKUP -->
+    <!-- 1. HERO SECTION -->
     <section class="section-spread active" id="spread-hero" data-index="1">
-      <div class="glass-panel hero-masthead">
-        <h1 class="hero-name" id="hero-name-target">Sanay Godhani</h1>
-        <!-- Hero center marker -->
-        <div class="brutalist-corner-ticks"></div>
-      </div>
-    </section>
-
-    <!-- 2. PROFILE & BIO (Split-Screen Ice Block Glass Panels) -->
-    <section class="section-spread split-screen" id="spread-bio" data-index="2">
-      <div class="split-left">
-        <div class="glass-panel">
-          <div class="split-padding flex-col-between">
-            <span class="panel-label">Profile / Bio</span>
-            <div class="bio-content-wrapper">
-              <h2 class="editorial-title" id="about-heading-target">Think distributed, act atomic.</h2>
-              <p class="editorial-body" id="about-bio-target">
-                Software Engineer with expertise in full-stack development, ML systems, and data pipelines. CS graduate from Carleton University.
-              </p>
-            </div>
-            <div></div> <!-- spacer -->
-          </div>
-          <!-- Left panel spacer -->
+      <div class="background-sun"></div>
+      <div class="asymmetric-grid">
+        <div class="content-col-40">
+          <h1 class="hero-name" id="hero-name-target">Sanay Godhani</h1>
+          <p class="editorial-body" id="hero-tagline-target" style="font-size: 20px; font-weight: 500; margin-bottom: 24px; color: var(--color-text);">
+            Engineering intelligence at production scale.
+          </p>
         </div>
-      </div>
-      <div class="split-right">
-        <div class="glass-panel split-padding flex-col-between text-right">
-          <span class="section-label">/Overview</span>
-          <div class="stats-grid" id="hero-stats-target">
-            <!-- stats loaded dynamically -->
-          </div>
-          <div></div> <!-- spacer -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. TECHNICAL EXPERTISE (Split-Screen Ice Block Glass Panels) -->
-    <section class="section-spread split-screen" id="spread-skills" data-index="3">
-      <div class="split-left">
-        <div class="glass-panel">
-          <div class="split-padding flex-col-between">
-            <span class="panel-label">Expertise / Stack</span>
-            <div class="skills-intro">
-              <h2 class="editorial-title">Architectural Capabilities</h2>
-              <p class="editorial-body">Custom templates and robust systems designed for performance and scale.</p>
-            </div>
-            <div></div> <!-- spacer -->
-          </div>
-          <!-- Left panel spacer -->
-        </div>
-      </div>
-      <div class="split-right">
-        <div class="glass-panel split-padding flex-col-between text-right">
-          <span class="section-label">/Technical Skills</span>
-          <div class="skills-editorial-list" id="skills-grid-target">
-            <!-- skills loaded dynamically -->
-          </div>
-          <div></div> <!-- spacer -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. PROFESSIONAL HISTORY (Split-Screen Ice Block Glass Panels) -->
-    <section class="section-spread split-screen" id="spread-experience" data-index="4">
-      <div class="split-left">
-        <div class="glass-panel">
-          <div class="split-padding flex-col-between">
-            <div>
-              <span class="panel-label">History / Timeline</span>
-              <div class="experience-intro">
-                <h2 class="editorial-title">Professional Milestones</h2>
-              </div>
-            </div>
-            <!-- Terminal Selection Menu -->
-            <div class="terminal-menu" id="exp-menu-target">
-              <!-- Populated dynamically by main.js -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="split-right">
-        <div class="glass-panel split-padding flex-col-between text-right">
-          <span class="section-label">/Experience</span>
-          <div class="experience-editorial-list" id="timeline-target">
-            <!-- Selected experience loaded dynamically with animation -->
-          </div>
-          <div class="education-editorial-section" id="education-target">
-            <!-- education loaded dynamically -->
+        <div class="artwork-col-60">
+          <div class="hero-wave-wrapper">
+            <!-- SVG Wave Illustration exiting viewport -->
+            <svg width="100%" height="100%" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Giant Sun in background of illustration -->
+              <circle cx="500" cy="300" r="220" fill="#FFAA52" opacity="0.3" stroke="#1E1E1E" stroke-width="1.5"/>
+              <circle cx="500" cy="300" r="160" fill="#C9B05A" opacity="0.4" stroke="#1E1E1E" stroke-width="1.5"/>
+              <!-- Retro waves with thick/thin style borders -->
+              <path d="M-100 800 C 150 700, 300 500, 450 600 C 600 700, 750 650, 900 800 L 900 900 L -100 900 Z" fill="#BCEFFC" stroke="#1E1E1E" stroke-width="2" />
+              <path d="M-50 800 C 200 680, 250 550, 480 580 C 680 600, 780 520, 950 800 L 950 900 L -50 900 Z" fill="#4DB7F5" stroke="#1E1E1E" stroke-width="2" />
+              <path d="M0 800 C 250 650, 350 480, 520 540 C 700 600, 800 480, 1000 800 L 1000 900 L 0 900 Z" fill="#26A8F2" stroke="#1E1E1E" stroke-width="2" />
+              <!-- Stylized retro birds -->
+              <path d="M 200 200 Q 220 180 240 200 Q 260 180 280 200" stroke="#1E1E1E" stroke-width="2" fill="none"/>
+              <path d="M 120 150 Q 135 135 150 150 Q 165 135 180 150" stroke="#1E1E1E" stroke-width="2" fill="none"/>
+            </svg>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. SELECTED PROJECTS (Split-Screen Ice Block Glass Panels) -->
-    <section class="section-spread split-screen" id="spread-projects" data-index="5">
-      <div class="split-left">
-        <div class="glass-panel">
-          <div class="split-padding flex-col-between">
-            <span class="panel-label">Selected Systems</span>
-            <div class="projects-intro">
-              <h2 class="editorial-title">Code & Research Releases</h2>
-            </div>
-            <div></div> <!-- spacer -->
-          </div>
-          <!-- Left panel spacer -->
-        </div>
-      </div>
-      <div class="split-right">
-        <div class="glass-panel split-padding flex-col-between text-right">
-          <span class="section-label">/Projects</span>
-          <div class="projects-editorial-list" id="projects-grid-target">
-            <!-- projects loaded dynamically -->
-          </div>
-          <div></div> <!-- spacer -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. CONTACT STUDIO -->
-    <section class="section-spread" id="spread-contact" data-index="6">
-      <div class="glass-panel contact-spread-container">
-        <span class="section-label-top">/Get In Touch</span>
-        
-        <div class="contact-editorial-layout">
-          <div class="contact-info-panel">
-            <h2 class="editorial-title">Start a Conversation</h2>
-            <div class="contact-direct-links" id="contact-details-target">
-              <!-- filled dynamically -->
-            </div>
-            <!-- Extra info or system status -->
-            <div class="system-status-indicator" id="footer-easter-egg">
-              SYS_STATUS: READY
-            </div>
-          </div>
-          
-          <div class="contact-form-panel">
-            <form class="editorial-contact-form" id="contact-form">
-              <div class="form-field-row">
-                <input type="text" id="form-name" name="from_name" class="editorial-input" placeholder="Your Name" required>
-              </div>
-              <div class="form-field-row">
-                <input type="email" id="form-email" name="from_email" class="editorial-input" placeholder="Email Address" required>
-              </div>
-              <div class="form-field-row">
-                <textarea id="form-message" name="message" class="editorial-textarea" placeholder="Describe your project or role..." rows="4" required></textarea>
-              </div>
+    <!-- 2. BIO & PROFILE SECTION -->
+    <section class="section-spread" id="spread-bio" data-index="2">
+      <div class="asymmetric-grid">
+        <div class="artwork-col-60">
+          <div class="bio-illustration">
+            <svg width="100%" height="100%" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background organic shape -->
+              <path d="M 100 200 C 150 50, 450 100, 500 250 C 550 400, 350 550, 200 500 C 50 450, 50 350, 100 200 Z" fill="#BCEFFC" stroke="#1E1E1E" stroke-width="1.5" />
               
-              <div class="form-submit-row">
-                <button type="submit" class="editorial-submit-btn">
-                  <span>Send Transmission</span>
-                </button>
-                <div class="form-status" id="form-status"></div>
-              </div>
-            </form>
+              <!-- Palm tree/leaves drawing -->
+              <path d="M300 500 Q 250 300 150 200" stroke="#1E1E1E" stroke-width="3" fill="none" />
+              <!-- Palm leaves modeled as layered blobs -->
+              <path d="M150 200 Q 180 150 250 160 Q 200 190 150 200" fill="#00D978" stroke="#1E1E1E" stroke-width="1.5" />
+              <path d="M150 200 Q 110 140 160 110 Q 150 170 150 200" fill="#A6D75B" stroke="#1E1E1E" stroke-width="1.5" />
+              <path d="M150 200 Q 80 190 100 130 Q 120 180 150 200" fill="#C4F35A" stroke="#1E1E1E" stroke-width="1.5" />
+              <path d="M150 200 Q 90 250 100 300 Q 130 240 150 200" fill="#00D978" stroke="#1E1E1E" stroke-width="1.5" />
+              <path d="M150 200 Q 190 260 260 240 Q 200 220 150 200" fill="#A6D75B" stroke="#1E1E1E" stroke-width="1.5" />
+
+              <!-- Hibiscus flower decoration -->
+              <g transform="translate(420, 350)">
+                <path d="M0 0 Q 30 -50 0 -80 Q -30 -50 0 0" fill="#FF4BBF" stroke="#1E1E1E" stroke-width="1.5" />
+                <path d="M0 0 Q 70 -20 80 20 Q 30 50 0 0" fill="#FF4BBF" stroke="#1E1E1E" stroke-width="1.5" />
+                <path d="M0 0 Q 40 60 -10 80 Q -50 30 0 0" fill="#FF4E5F" stroke="#1E1E1E" stroke-width="1.5" />
+                <path d="M0 0 Q -60 40 -80 -10 Q -30 -50 0 0" fill="#FF4E5F" stroke="#1E1E1E" stroke-width="1.5" />
+                <path d="M0 0 Q -50 -60 10 -80 Q 50 -30 0 0" fill="#FFAA52" stroke="#1E1E1E" stroke-width="1.5" />
+                <circle cx="0" cy="0" r="15" fill="#C9B05A" stroke="#1E1E1E" stroke-width="1.5" />
+              </g>
+            </svg>
           </div>
+        </div>
+        <div class="content-col-40">
+          <h2 class="editorial-title" id="about-heading-target">Think distributed, act atomic.</h2>
+          <p class="editorial-body" id="about-bio-target">
+            Software Engineer with expertise in full-stack development, ML systems, and data pipelines. CS graduate from Carleton University.
+          </p>
+          <div class="stats-container" id="hero-stats-target">
+            <!-- Stats loaded dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. EXPERTISE / STACK SECTION -->
+    <section class="section-spread" id="spread-skills" data-index="3">
+      <div class="background-sun" style="left: auto; right: 5%; background: var(--color-hibiscus-pink); opacity: 0.05;"></div>
+      <div class="asymmetric-grid">
+        <div class="content-col-30">
+          <h2 class="editorial-title">Architectural Capabilities</h2>
+          <p class="editorial-body">Custom templates and robust systems designed for performance and scale.</p>
+        </div>
+        <div class="artwork-col-70">
+          <div class="skills-grid" id="skills-grid-target">
+            <!-- Skills cards loaded dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MILITARY / HISTORY SECTION -->
+    <section class="section-spread" id="spread-experience" data-index="4">
+      <div class="asymmetric-grid">
+        <div class="content-col-30">
+          <h2 class="editorial-title">Professional Milestones</h2>
+          <p class="editorial-body">A detailed log of roles, engineering feats, and academic achievements.</p>
+        </div>
+        <div class="artwork-col-70" style="height: 85%;">
+          <div class="experience-ticket-container">
+            <div class="experience-nav-stamps" id="exp-menu-target">
+              <!-- Stamp menu loaded dynamically -->
+            </div>
+            <div class="experience-display-ticket">
+              <div class="ticket-header">
+                <span class="ticket-company" id="ticket-company-target">Company</span>
+                <span class="ticket-date" id="ticket-date-target">Date</span>
+              </div>
+              <div class="ticket-role" id="ticket-role-target">Role</div>
+              <ul class="ticket-bullets" id="timeline-target">
+                <!-- Selected bullets loaded dynamically -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SELECTED PROJECTS SECTION -->
+    <section class="section-spread" id="spread-projects" data-index="5">
+      <div class="background-sun" style="top: auto; bottom: 5%; background: var(--color-palm-green); opacity: 0.05;"></div>
+      <div class="asymmetric-grid">
+        <div class="content-col-30">
+          <h2 class="editorial-title">Code & Research Releases</h2>
+          <p class="editorial-body">Explore open-source architectures, deep learning models, and interactive visuals.</p>
+        </div>
+        <div class="artwork-col-70" style="height: 85%;">
+          <div class="projects-blob-grid" id="projects-grid-target">
+            <!-- Projects loaded dynamically as organic shapes -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CONTACT / CTA SECTION -->
+    <section class="section-spread" id="spread-contact" data-index="6">
+      <div class="sunset-cta-container">
+        <div class="sunset-bg-motifs">
+          <svg width="100%" height="100%" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="800" cy="500" r="300" fill="#FFAA52" />
+            <path d="M 0 450 C 300 400, 600 500, 1000 450 L 1000 600 L 0 600 Z" fill="#C9B05A" />
+          </svg>
+        </div>
+        
+        <div class="contact-left">
+          <div>
+            <h2 class="editorial-title" style="margin-top: 12px; margin-bottom: 16px;">Let's Create Something Majestic</h2>
+            <p class="editorial-body" style="color: var(--color-text-muted);">
+              Whether it's a production-grade machine learning system or a bespoke full-stack template, I'm ready to collaborate.
+            </p>
+          </div>
+          <div class="contact-links" id="contact-details-target">
+            <!-- Contact links dynamically loaded -->
+          </div>
+          <div class="system-status-indicator" id="footer-easter-egg">
+            [System Status: Active]
+          </div>
+        </div>
+        
+        <div class="contact-right">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <input type="text" id="form-name" name="from_name" class="form-input" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="form-email" name="from_email" class="form-input" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+              <textarea id="form-message" name="message" class="form-textarea" placeholder="Describe your project or role..." rows="5" required></textarea>
+            </div>
+            <div>
+              <button type="submit" class="blob-button" style="border-radius: 999px; width: 100%; justify-content: center;">
+                Send Message
+              </button>
+              <div class="form-status" id="form-status"></div>
+            </div>
+          </form>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Section Pagination Wayfinding Strip (Anchored Bottom) -->
+  <!-- Section Pagination Strip -->
   <div class="pagination-strip">
     <div class="pagination-container">
-      <!-- Secondary backward-navigation -->
       <button class="hairline-arrow-control" id="prev-btn" aria-label="Previous Section">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M19 12H5M12 19l-7-7 7-7" />
         </svg>
       </button>
 
-      <!-- Center counter -->
       <span class="pagination-counter" id="pagination-counter">1 / 6</span>
 
-      <!-- Primary forward-navigation control -->
       <button class="solid-circle-action-button" id="next-btn" aria-label="Next Section">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <path d="M5 12h14M12 5l7 7-7 7" />

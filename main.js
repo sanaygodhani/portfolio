@@ -1,6 +1,6 @@
 /* ==========================================================================
    PORTFOLIO ENGINE & INTERACTIVE CLIENT-SIDE LOGIC
-   Pudgy Penguins Cozy Fusion — Cloud and Iceberg snapping spread layout
+   Vintage Hawaii Travel Poster Theme
    ========================================================================== */
 
 import emailjs from '@emailjs/browser';
@@ -19,15 +19,17 @@ function initDynamicHydration() {
   
   const heroNameTarget = document.getElementById('hero-name-target');
   if (heroNameTarget) {
-    heroNameTarget.textContent = `${config.name}`;
+    heroNameTarget.innerHTML = `Sanay <span>Godhani</span>`;
   }
   
-  // Bio/About Tagline & Bio text
+  const heroTaglineTarget = document.getElementById('hero-tagline-target');
+  if (heroTaglineTarget && config.heroTagline) {
+    heroTaglineTarget.textContent = config.heroTagline.join(' ') + '.';
+  }
+
   const aboutHeadingTarget = document.getElementById('about-heading-target');
-  if (aboutHeadingTarget && config.aboutTagline && Array.isArray(config.aboutTagline)) {
+  if (aboutHeadingTarget && config.aboutTagline) {
     aboutHeadingTarget.textContent = config.aboutTagline.join(' ');
-  } else if (aboutHeadingTarget && config.heroTagline) {
-    aboutHeadingTarget.textContent = config.heroTagline.join(' ');
   }
 
   const bioTarget = document.getElementById('about-bio-target');
@@ -39,9 +41,9 @@ function initDynamicHydration() {
   const statsTarget = document.getElementById('hero-stats-target');
   if (statsTarget && config.stats && Array.isArray(config.stats)) {
     statsTarget.innerHTML = config.stats.slice(0, 4).map(stat => `
-      <div class="stat-item">
-        <span class="stat-value">${stat.value}</span>
-        <span class="stat-label">${stat.label}</span>
+      <div class="stat-card">
+        <div class="stat-value">${stat.value}</div>
+        <div class="stat-label">${stat.label}</div>
       </div>
     `).join('');
   }
@@ -50,65 +52,67 @@ function initDynamicHydration() {
   const skillsTarget = document.getElementById('skills-grid-target');
   if (skillsTarget && config.skills && Array.isArray(config.skills)) {
     skillsTarget.innerHTML = config.skills.map(skill => `
-      <div class="skill-editorial-item">
-        <span class="skill-cat">${skill.category}</span>
+      <div class="skill-card">
+        <div class="skill-cat">${skill.category.replace(/[\[\]]/g, '')}</div>
         <h3 class="skill-title">${skill.title}</h3>
-        <div class="skill-tags-inline">${skill.tags.join('  ·  ')}</div>
+        <div class="skill-tags">
+          ${skill.tags.map(tag => `<span class="skill-tag">${tag}</span>`).join('')}
+        </div>
       </div>
     `).join('');
   }
 
-  // Work Experience Terminal Selection Menu & Output Loader
+  // Work Experience Stamp Selector & Ticket Hydration
   const menuTarget = document.getElementById('exp-menu-target');
+  const ticketCompany = document.getElementById('ticket-company-target');
+  const ticketDate = document.getElementById('ticket-date-target');
+  const ticketRole = document.getElementById('ticket-role-target');
   const timelineTarget = document.getElementById('timeline-target');
-  if (menuTarget && timelineTarget && config.experience && Array.isArray(config.experience)) {
-    // Generate Menu Buttons
+
+  if (menuTarget && config.experience && Array.isArray(config.experience)) {
+    // Generate Stamp Menu Buttons
     menuTarget.innerHTML = config.experience.map((exp, idx) => `
-      <button class="terminal-menu-btn${idx === 0 ? ' active' : ''}" data-index="${idx}">
-        &gt; cat ${exp.company.toLowerCase().replace(/\s+/g, '_')}.log
+      <button class="stamp-btn${idx === 0 ? ' active' : ''}" data-index="${idx}">
+        ${exp.company}
       </button>
     `).join('');
 
-    // Load Experience details with reveal animations
     const renderExperience = (idx) => {
       const exp = config.experience[idx];
-      const bulletsHTML = exp.bullets.map(bullet => 
-        `<li class="timeline-bullet">${bullet}</li>`
-      ).join('');
+      if (!exp) return;
 
-      timelineTarget.innerHTML = `
-        <div class="timeline-item terminal-output">
-          <div class="terminal-prompt">&gt; executing log dump for index_${idx}... [OK]</div>
-          <h3 class="timeline-company">${exp.company}</h3>
-          <div class="timeline-role-date">${exp.role} &nbsp;·&nbsp; ${exp.date}</div>
-          <ul class="timeline-bullets">
-            ${bulletsHTML}
-          </ul>
-        </div>
-      `;
+      if (ticketCompany) ticketCompany.textContent = exp.company;
+      if (ticketDate) ticketDate.textContent = exp.date;
+      if (ticketRole) ticketRole.textContent = exp.role;
 
-      // Apply staggering line reveal animation
-      const bullets = timelineTarget.querySelectorAll('.timeline-bullet');
-      bullets.forEach((bullet, bIdx) => {
-        bullet.style.opacity = '0';
-        bullet.style.transform = 'translateY(5px)';
-        bullet.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-        setTimeout(() => {
-          bullet.style.opacity = '1';
-          bullet.style.transform = 'translateY(0)';
-        }, (bIdx + 1) * 80);
-      });
+      if (timelineTarget) {
+        timelineTarget.innerHTML = exp.bullets.map(bullet => 
+          `<li class="ticket-bullet">${bullet}</li>`
+        ).join('');
+
+        // Apply staggering line reveal animation
+        const bullets = timelineTarget.querySelectorAll('.ticket-bullet');
+        bullets.forEach((bullet, bIdx) => {
+          bullet.style.opacity = '0';
+          bullet.style.transform = 'translateY(8px)';
+          bullet.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          setTimeout(() => {
+            bullet.style.opacity = '1';
+            bullet.style.transform = 'translateY(0)';
+          }, (bIdx + 1) * 60);
+        });
+      }
     };
 
     // Initialize first experience item
     renderExperience(0);
 
-    // Click handler for menu items
+    // Click handler for stamps
     menuTarget.addEventListener('click', (e) => {
-      const btn = e.target.closest('.terminal-menu-btn');
+      const btn = e.target.closest('.stamp-btn');
       if (!btn) return;
 
-      menuTarget.querySelectorAll('.terminal-menu-btn').forEach(b => b.classList.remove('active'));
+      menuTarget.querySelectorAll('.stamp-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
       const index = parseInt(btn.getAttribute('data-index'), 10);
@@ -116,30 +120,20 @@ function initDynamicHydration() {
     });
   }
 
-  // Education Section
-  const eduTarget = document.getElementById('education-target');
-  if (eduTarget && config.education) {
-    eduTarget.innerHTML = `
-      <h3 class="edu-school">${config.education.school}</h3>
-      <div class="edu-degree">${config.education.degree} (${config.education.graduated})</div>
-    `;
-  }
+
 
   // Projects List
   const projectsTarget = document.getElementById('projects-grid-target');
   if (projectsTarget && config.projects && Array.isArray(config.projects)) {
-    projectsTarget.innerHTML = config.projects.map((proj, idx) => {
+    projectsTarget.innerHTML = config.projects.map((proj) => {
       const linkAttribute = proj.link ? `href="${proj.link}" target="_blank" rel="noopener noreferrer"` : 'style="cursor: default;"';
-      const orderNum = String(idx + 1).padStart(2, '0');
-      
       return `
-        <a ${linkAttribute} class="project-item-link">
-          <div class="project-header-row">
-            <span class="project-num">../</span>
+        <a ${linkAttribute} class="project-blob-card">
+          <div>
             <h3 class="project-name">${proj.name}</h3>
+            <p class="project-desc">${proj.description}</p>
           </div>
-          <p class="project-desc">${proj.description}</p>
-          <div class="project-stack-row">${proj.stack.join('  /  ')}</div>
+          <div class="project-stack">${proj.stack.join('  /  ')}</div>
         </a>
       `;
     }).join('');
@@ -149,10 +143,22 @@ function initDynamicHydration() {
   const contactDetailsTarget = document.getElementById('contact-details-target');
   if (contactDetailsTarget) {
     contactDetailsTarget.innerHTML = `
-      <a href="mailto:${config.email}" class="contact-direct-link">Email / ${config.email}</a>
-      <a href="tel:${config.phone.replace(/[^0-9+]/g, '')}" class="contact-direct-link">Phone / ${config.phone}</a>
-      <a href="${config.linkedin}" target="_blank" rel="noopener noreferrer" class="contact-direct-link">LinkedIn / Profile</a>
-      <a href="${config.github}" target="_blank" rel="noopener noreferrer" class="contact-direct-link">GitHub / Workspace</a>
+      <a href="mailto:${config.email}" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        ${config.email}
+      </a>
+      <a href="tel:${config.phone.replace(/[^0-9+]/g, '')}" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        ${config.phone}
+      </a>
+      <a href="${config.linkedin}" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn Profile
+      </a>
+      <a href="${config.github}" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub Workspace
+      </a>
     `;
   }
 }
@@ -240,15 +246,13 @@ function initContactForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    const submitBtn = form.querySelector('.editorial-submit-btn');
-    const label = submitBtn.querySelector('span');
+    const submitBtn = form.querySelector('button[type="submit"]');
     
     submitBtn.disabled = true;
-    label.textContent = "Transmitting...";
+    submitBtn.textContent = "Sending...";
     status.style.opacity = '0';
     status.className = "form-status";
     
-    const name = document.getElementById('form-name').value;
     const email = document.getElementById('form-email').value;
 
     emailjs.sendForm(
@@ -257,11 +261,11 @@ function initContactForm() {
       form
     ).then(() => {
       submitBtn.disabled = false;
-      label.textContent = "Send Transmission";
+      submitBtn.textContent = "Send Message";
       
       status.style.opacity = '1';
-      status.style.color = "var(--color-outline)";
-      status.textContent = `Transmission Successful! Thank you. I will reply to ${email} shortly.`;
+      status.style.color = "var(--color-palm-green)";
+      status.textContent = `Message Sent! Thank you. I will reply to ${email} shortly.`;
       
       form.reset();
       
@@ -271,11 +275,11 @@ function initContactForm() {
     }).catch((error) => {
       console.error('EmailJS Error:', error);
       submitBtn.disabled = false;
-      label.textContent = "Send Transmission";
+      submitBtn.textContent = "Send Message";
       
       status.style.opacity = '1';
-      status.style.color = "red";
-      status.textContent = "Transmission failed. Please try again or email me directly.";
+      status.style.color = "var(--color-sunset-coral)";
+      status.textContent = "Message failed. Please try again or email me directly.";
       
       setTimeout(() => {
         status.style.opacity = '0';
@@ -308,15 +312,14 @@ function initEasterEggs() {
       banner.style.bottom = '110px';
       banner.style.left = '50%';
       banner.style.transform = 'translateX(-50%) translateY(50px)';
-      banner.style.background = 'var(--color-outline)';
-      banner.style.color = 'var(--color-paper)';
+      banner.style.background = 'var(--color-text)';
+      banner.style.color = 'var(--color-bg)';
       banner.style.padding = '16px 32px';
-      banner.style.border = '3px solid var(--color-outline)';
+      banner.style.border = 'var(--fine-outline)';
       banner.style.borderRadius = '20px';
       banner.style.fontFamily = 'var(--font-display)';
       banner.style.fontSize = '15px';
       banner.style.fontWeight = '600';
-      banner.style.letterSpacing = '0.01em';
       banner.style.zIndex = '10000';
       banner.style.opacity = '0';
       banner.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
@@ -346,31 +349,23 @@ function initEasterEggs() {
       const root = document.documentElement;
       
       if (altThemeActive) {
-        // Switch variables to "SYS_STATUS: OVERLOAD" (High-contrast safety orange invasion)
-        root.style.setProperty('--color-sky-light', '#ff5f1f');
-        root.style.setProperty('--color-sky-blue', '#ff5f1f');
-        root.style.setProperty('--color-pudgy-yellow', '#000000');
-        root.style.setProperty('--color-pudgy-orange', '#ffffff');
-        root.style.setProperty('--color-paper', '#ff5f1f');
-        root.style.setProperty('--color-outline', '#000000');
-        root.style.setProperty('--glass-bg', '#ff5f1f');
-        root.style.setProperty('--glass-border', '#000000');
-        root.style.setProperty('--color-obsidian', '#000000');
-        root.style.setProperty('--color-obsidian-muted', '#111111');
-        statusIndicator.textContent = "SYS_STATUS: OVERLOAD";
+        // Retro Cyberpunk / High-Contrast Neon mode
+        root.style.setProperty('--color-bg', '#0A0A0F');
+        root.style.setProperty('--color-text', '#39FF14'); // Neon Green
+        root.style.setProperty('--color-text-muted', '#00FFFF'); // Neon Cyan
+        root.style.setProperty('--color-sky-foam', '#12121A');
+        root.style.setProperty('--color-deep-blue', '#FF007F'); // Neon Pink
+        root.style.setProperty('--color-cloud-white', '#181824');
+        statusIndicator.textContent = "[System: Diagnostic Synthesis Mode]";
       } else {
         // Reset properties
-        root.style.removeProperty('--color-sky-light');
-        root.style.removeProperty('--color-sky-blue');
-        root.style.removeProperty('--color-pudgy-yellow');
-        root.style.removeProperty('--color-pudgy-orange');
-        root.style.removeProperty('--color-paper');
-        root.style.removeProperty('--color-outline');
-        root.style.removeProperty('--glass-bg');
-        root.style.removeProperty('--glass-border');
-        root.style.removeProperty('--color-obsidian');
-        root.style.removeProperty('--color-obsidian-muted');
-        statusIndicator.textContent = "SYS_STATUS: READY";
+        root.style.removeProperty('--color-bg');
+        root.style.removeProperty('--color-text');
+        root.style.removeProperty('--color-text-muted');
+        root.style.removeProperty('--color-sky-foam');
+        root.style.removeProperty('--color-deep-blue');
+        root.style.removeProperty('--color-cloud-white');
+        statusIndicator.textContent = "[System Status: Active]";
       }
     });
   }
