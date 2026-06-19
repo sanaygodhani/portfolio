@@ -825,20 +825,35 @@ html, body {
   /* Responsive Liquid Glass Nav */
   .liquid-glass-nav {
     top: auto;
-    bottom: 15px;
-    width: calc(100% - 32px);
-    max-width: 480px;
-    overflow-x: auto;
-    padding: 8px 12px;
-    gap: 6px;
-    box-shadow: 4px -4px 0px 0px var(--color-outline);
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    padding: 12px 5px;
+    gap: 4px;
+    box-shadow: 0px -4px 10px rgba(0,0,0,0.5);
+    border: none;
+    border-top: 3px solid var(--color-pudgy-orange);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    overflow-x: auto;
+    /* Hide scrollbar for cleaner look */
+    scrollbar-width: none; 
+  }
+  .liquid-glass-nav::-webkit-scrollbar {
+    display: none;
   }
   .liquid-glass-nav .nav-link {
-    font-size: 11px;
+    font-size: 12px;
     white-space: nowrap;
-    padding: 4px 6px;
+    padding: 12px 6px;
+    flex: 1;
+    text-align: center;
+    /* Touch target size improvement */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .pagination-strip {
     display: none !important;
