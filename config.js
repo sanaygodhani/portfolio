@@ -13,7 +13,7 @@ const config = {
     location: "Toronto, ON",
     email: "sanaygodhani@cmail.carleton.ca",
     phone: "343-558-0186",
-    linkedin: "http://www.linkedin.com/in/sanay-godhani", // your full LinkedIn URL
+    linkedin: "https://www.linkedin.com/in/sanay-godhani", // your full LinkedIn URL
     github: "https://github.com/sanaygodhani",        // your GitHub URL
 
     // ── EMAILJS CONFIG ─────────────────────────────────────────
