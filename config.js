@@ -65,23 +65,27 @@ const config = {
     // ── WORK EXPERIENCE ────────────────────────────────────────
     experience: [
       {
-        company: "Freelance",
-        role: "Software Engineer",
-        location: "Surat, Gujarat",
-        date: "Apr 2026 – Present",
+        company: "Mishal Reborn Metals",
+        role: "Trade Strategist & Sales Analyst",
+        location: "Hybrid",
+        date: "Feb 2026 – Present",
         bullets: [
-          "Designed an immutable, append-only inventory ledger system that calculates stock levels dynamically (never storing mutablestock counts), preventing data drift and ensuring perfect audit trails for high-value scrap metal transactions.",
-          "Architected complex PostgreSQL schema with custom ENUM types, generated columns, strict CHECK constraints, and relationalforeign keys to manage containers, multi-step sales, expenses, and labor wages.",
-          "Implemented robust ACID-compliant transaction handling using PostgreSQL advisory locks to prevent race conditions and over-selling during simultaneous purchase requests.",
-          "Developed a dynamic profit calculation engine that aggregates revenue, container-specific expenses, labor costs, and wastedisposal to generate real-time P&L reports.",
-          "Integrated strict validation pipelines using Zod to ensure waste materials (plastic, sand) are strictly separated from revenue-generating metals (copper, aluminum, brass).",
+            "Market Intelligence: Continuously monitoring global and domestic metal markets, tracking price fluctuations, supply chain disruptions, and geopolitical factors affecting scrap and refined metal pricing (e.g., LME trends). 
+            "Sourcing Optimization: Developing data-driven strategies for sourcing raw materials. Identify cost-effective purchasing windows and evaluate vendor/supplier performance to maximize margins. 
+            "Pricing Strategy: Collaborating with the procurement and sales teams to establish dynamic pricing models that reflect real-time market conditions and maintain competitive advantage. 
+            "Risk Management: Identifying potential market risks and propose hedging strategies or diversification tactics to protect company margins.",
+            "Data Analytics: Analyzed sales data, customer purchasing behaviors, and historical trends to identify growth opportunities and areas for improvement. 
+            "Forecasting: Developed accurate short-term and long-term sales forecasts to guide inventory management and procurement strategies. 
+            "Reporting: Creating and maintaining comprehensive dashboards and reports detailing key performance indicators (KPIs), revenue metrics, and profit margins for executive review. 
+            "Sales Optimization: Working closely with the sales team to analyze pipeline velocity, conversion rates, and account profitability. Provide actionable insights to improve sales tactics and territory management. 
+            "Cross-Functional Collaboration: Acted as the primary liaison between the purchasing/trading desk and the sales department, ensuring alignment between what we buy and what the market demands. Presented complex market data and sales metrics in a clear, digestible format to stakeholders and executive leadership."
         ],
       },
       {
         company: "Nirmal Bang",
         role: "Software Engineer",
         location: "Mumbai, Maharashtra",
-        date: "Dec 2025 – Apr 2026",
+        date: "Dec 2025 – Feb 2026",
         bullets: [
           "Architected and deployed a full-stack internal communication platform using Flask and SQL, featuring a dynamic template engine, role-based recipient selection, and real-time data hydration from the firm's production database.",
           "Engineered a robust backend API layer for template rendering and transactional email dispatch via smtplib and Flask-Mail, integrating directly with existing SQL infrastructure.",
@@ -104,18 +108,25 @@ const config = {
   
     // ── PROJECTS ───────────────────────────────────────────────
     projects: [
+        {
+        name: "ERP & CRM",
+        description:
+          "Designed and developed a robust inventory and financial management system using PostgreSQL, featuring an immutable ledger architecture, ACID-compliant transactions, real-time profit analytics, and strict data validation to ensure auditability, consistency, and accurate tracking of high-value scrap metal operations.",
+        stack: ["FastAPI", "JavaScript", "Postgres", "Redis"],
+        link: "https://conload.vercel.app", // optional: URL to live demo or GitHub repo
+      }
       {
         name: "Full-Stack E-Commerce Platform",
         description:
           "Production-grade e-commerce app with secure session auth, RESTful catalogue API, Redis cart caching, and a normalized SQL schema managing users, inventory, and orders.",
-        stack: ["Flask", "JavaScript", "HTML/CSS", "SQL", "Redis", "REST API"],
+        stack: ["Flask", "JavaScript", "SQL", "Redis", "REST API"],
         link: "https://github.com/sanaygodhani", // optional: URL to live demo or GitHub repo
       },
       {
         name: "Corp. Website (Live)",
         description:
           "Led the rebranding and development of a new corporate website",
-        stack: ["JavaScript", "HTML/CSS"],
+        stack: ["JavaScript"],
         link: "https://sanaygodhani.github.io/mrm/", // optional: URL to live demo or GitHub repo
       },
       {
