@@ -597,6 +597,23 @@ h1, h2, h3, h4 {
   .liquid-glass-nav {
     top: auto;
     bottom: 24px;
+    width: calc(100% - 32px);
+    overflow-x: auto;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px;
+    border-radius: 20px;
+  }
+  .liquid-glass-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-link {
+    font-size: 13px;
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr;
   }
 }
 
