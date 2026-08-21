@@ -70,14 +70,14 @@ const config = {
         location: "Hybrid",
         date: "Feb 2026 – Present",
         bullets: [
-            "Market Intelligence: Continuously monitoring global and domestic metal markets, tracking price fluctuations, supply chain disruptions, and geopolitical factors affecting scrap and refined metal pricing (e.g., LME trends). 
-            "Sourcing Optimization: Developing data-driven strategies for sourcing raw materials. Identify cost-effective purchasing windows and evaluate vendor/supplier performance to maximize margins. 
-            "Pricing Strategy: Collaborating with the procurement and sales teams to establish dynamic pricing models that reflect real-time market conditions and maintain competitive advantage. 
+            "Market Intelligence: Continuously monitoring global and domestic metal markets, tracking price fluctuations, supply chain disruptions, and geopolitical factors affecting scrap and refined metal pricing (e.g., LME trends).",
+            "Sourcing Optimization: Developing data-driven strategies for sourcing raw materials. Identify cost-effective purchasing windows and evaluate vendor/supplier performance to maximize margins.",
+            "Pricing Strategy: Collaborating with the procurement and sales teams to establish dynamic pricing models that reflect real-time market conditions and maintain competitive advantage.",
             "Risk Management: Identifying potential market risks and propose hedging strategies or diversification tactics to protect company margins.",
-            "Data Analytics: Analyzed sales data, customer purchasing behaviors, and historical trends to identify growth opportunities and areas for improvement. 
-            "Forecasting: Developed accurate short-term and long-term sales forecasts to guide inventory management and procurement strategies. 
-            "Reporting: Creating and maintaining comprehensive dashboards and reports detailing key performance indicators (KPIs), revenue metrics, and profit margins for executive review. 
-            "Sales Optimization: Working closely with the sales team to analyze pipeline velocity, conversion rates, and account profitability. Provide actionable insights to improve sales tactics and territory management. 
+            "Data Analytics: Analyzed sales data, customer purchasing behaviors, and historical trends to identify growth opportunities and areas for improvement.",
+            "Forecasting: Developed accurate short-term and long-term sales forecasts to guide inventory management and procurement strategies.",
+            "Reporting: Creating and maintaining comprehensive dashboards and reports detailing key performance indicators (KPIs), revenue metrics, and profit margins for executive review.",
+            "Sales Optimization: Working closely with the sales team to analyze pipeline velocity, conversion rates, and account profitability. Provide actionable insights to improve sales tactics and territory management.",
             "Cross-Functional Collaboration: Acted as the primary liaison between the purchasing/trading desk and the sales department, ensuring alignment between what we buy and what the market demands. Presented complex market data and sales metrics in a clear, digestible format to stakeholders and executive leadership."
         ],
       },
@@ -114,7 +114,7 @@ const config = {
           "Designed and developed a robust inventory and financial management system using PostgreSQL, featuring an immutable ledger architecture, ACID-compliant transactions, real-time profit analytics, and strict data validation to ensure auditability, consistency, and accurate tracking of high-value scrap metal operations.",
         stack: ["FastAPI", "JavaScript", "Postgres", "Redis"],
         link: "https://conload.vercel.app", // optional: URL to live demo or GitHub repo
-      }
+      },
       {
         name: "Full-Stack E-Commerce Platform",
         description:
