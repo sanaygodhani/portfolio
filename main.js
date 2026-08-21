@@ -5,12 +5,27 @@
 
 import emailjs from '@emailjs/browser';
 import config from './config.js';
+import Lenis from 'lenis';
+import { initOrb } from './orb.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initLenis();
+  initOrb();
   initDynamicHydration();
   initPaginationWayfinding();
   initContactForm();
 });
+
+function initLenis() {
+  const lenis = new Lenis();
+  
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  
+  requestAnimationFrame(raf);
+}
 
 /* ── 1. DYNAMIC CONTENT HYDRATION ───────────────────────────────────────── */
 function initDynamicHydration() {
@@ -23,7 +38,7 @@ function initDynamicHydration() {
   
   const heroTaglineTarget = document.getElementById('hero-tagline-target');
   if (heroTaglineTarget && config.heroTagline) {
-    heroTaglineTarget.textContent = config.heroTagline.join(' ') + '.';
+    heroTaglineTarget.textContent = config.heroTagline.join(' ');
   }
 
   const aboutHeadingTarget = document.getElementById('about-heading-target');
@@ -180,20 +195,19 @@ function initDynamicHydration() {
 
 /* ── 2. SCROLL WAYFINDING ────────────────────────────── */
 function initPaginationWayfinding() {
-  const container = document.getElementById('spread-container');
   const sections = document.querySelectorAll('.section-spread');
   const navLinks = document.querySelectorAll('.liquid-glass-nav .nav-link');
 
-  if (!container || sections.length === 0) return;
+  if (sections.length === 0) return;
 
   const updatePaginationState = () => {
-    const scrollPosition = container.scrollTop;
-    const containerHeight = container.clientHeight;
+    const scrollPosition = window.scrollY;
+    const viewportHeight = window.innerHeight;
     
     let currentIdx = 0;
     sections.forEach((section, index) => {
       const sectionTop = section.offsetTop;
-      if (scrollPosition >= sectionTop - containerHeight / 2) {
+      if (scrollPosition >= sectionTop - viewportHeight / 2) {
         currentIdx = index;
       }
     });
@@ -207,7 +221,7 @@ function initPaginationWayfinding() {
     });
   };
 
-  container.addEventListener('scroll', updatePaginationState, { passive: true });
+  window.addEventListener('scroll', updatePaginationState, { passive: true });
   updatePaginationState();
 
   navLinks.forEach((link) => {
@@ -273,3 +287,4 @@ function initContactForm() {
     });
   });
 }
+
