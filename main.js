@@ -1,6 +1,6 @@
 /* ==========================================================================
    PORTFOLIO ENGINE & INTERACTIVE CLIENT-SIDE LOGIC
-   Vintage Hawaii Travel Poster Theme
+   Apple Design Inspired (Emil Kowalski principles)
    ========================================================================== */
 
 import emailjs from '@emailjs/browser';
@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initDynamicHydration();
   initPaginationWayfinding();
   initContactForm();
-  initEasterEggs();
 });
 
 /* ── 1. DYNAMIC CONTENT HYDRATION ───────────────────────────────────────── */
@@ -19,10 +18,7 @@ function initDynamicHydration() {
   
   const heroNameTarget = document.getElementById('hero-name-target');
   if (heroNameTarget) {
-    heroNameTarget.innerHTML = `
-      <span class="name-line line-solid">SANAY</span>
-      <span class="name-line line-outline">GODHANI</span>
-    `;
+    heroNameTarget.innerHTML = `<span class="name-line">${config.name}</span>`;
   }
   
   const heroTaglineTarget = document.getElementById('hero-tagline-target');
@@ -65,7 +61,7 @@ function initDynamicHydration() {
     `).join('');
   }
 
-  // Work Experience Stamp Selector & Ticket Hydration
+  // Work Experience Selector & Ticket Hydration
   const menuTarget = document.getElementById('exp-menu-target');
   const ticketCompany = document.getElementById('ticket-company-target');
   const ticketDate = document.getElementById('ticket-date-target');
@@ -73,7 +69,7 @@ function initDynamicHydration() {
   const timelineTarget = document.getElementById('timeline-target');
 
   if (menuTarget && config.experience && Array.isArray(config.experience)) {
-    // Generate Stamp Menu Buttons
+    // Generate Menu Buttons
     menuTarget.innerHTML = config.experience.map((exp, idx) => `
       <button class="stamp-btn${idx === 0 ? ' active' : ''}" data-index="${idx}">
         ${exp.company}
@@ -93,24 +89,22 @@ function initDynamicHydration() {
           `<li class="ticket-bullet">${bullet}</li>`
         ).join('');
 
-        // Apply staggering line reveal animation
+        // Apply staggered animation using custom ease-out
         const bullets = timelineTarget.querySelectorAll('.ticket-bullet');
         bullets.forEach((bullet, bIdx) => {
           bullet.style.opacity = '0';
-          bullet.style.transform = 'translateY(8px)';
-          bullet.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          bullet.style.transform = 'translateY(10px) scale(0.97)';
+          bullet.style.transition = 'opacity 250ms cubic-bezier(0.23, 1, 0.32, 1), transform 250ms cubic-bezier(0.23, 1, 0.32, 1)';
           setTimeout(() => {
             bullet.style.opacity = '1';
-            bullet.style.transform = 'translateY(0)';
+            bullet.style.transform = 'translateY(0) scale(1)';
           }, (bIdx + 1) * 60);
         });
       }
     };
 
-    // Initialize first experience item
     renderExperience(0);
 
-    // Click handler for stamps
     menuTarget.addEventListener('click', (e) => {
       const btn = e.target.closest('.stamp-btn');
       if (!btn) return;
@@ -122,8 +116,6 @@ function initDynamicHydration() {
       renderExperience(index);
     });
   }
-
-
 
   // Projects List
   const projectsTarget = document.getElementById('projects-grid-target');
@@ -142,25 +134,19 @@ function initDynamicHydration() {
     }).join('');
   }
 
-  // Hobbies List (Vintage Postage Stamps)
+  // Hobbies List (Refactored to Bento Cards)
   const hobbiesTarget = document.getElementById('hobbies-grid-target');
   if (hobbiesTarget && config.hobbies && Array.isArray(config.hobbies)) {
     hobbiesTarget.innerHTML = config.hobbies.map(hobby => {
       const isFeatured = hobby.name === "Indrith Studio";
       return `
-        <div class="stamp-card${isFeatured ? ' featured' : ''}" style="--stamp-color: ${hobby.stampColor};">
-          <div class="stamp-inner-border"></div>
-          <!-- Simulated corner punch holes -->
-          <div class="stamp-perforations-side left"></div>
-          <div class="stamp-perforations-side right"></div>
-          <div class="stamp-postmark" style="--stamp-color: ${hobby.stampColor};">${hobby.name}</div>
+        <div class="stamp-card${isFeatured ? ' featured' : ''}">
           <div class="stamp-header">
-            <span class="stamp-price" style="--stamp-color: ${hobby.stampColor};">50¢</span>
+            <span class="stamp-price">${isFeatured ? 'Featured' : hobby.role}</span>
             <span class="stamp-date">${hobby.date}</span>
           </div>
           <div class="stamp-body">
             <h3 class="stamp-title">${hobby.name}</h3>
-            <div class="stamp-role" style="--stamp-color: ${hobby.stampColor};">${hobby.role}</div>
             <p class="stamp-details">${hobby.details}</p>
           </div>
         </div>
@@ -192,25 +178,18 @@ function initDynamicHydration() {
   }
 }
 
-/* ── 2. SCROLL WAYFINDING & PAGINATION STRIP ────────────────────────────── */
+/* ── 2. SCROLL WAYFINDING ────────────────────────────── */
 function initPaginationWayfinding() {
   const container = document.getElementById('spread-container');
   const sections = document.querySelectorAll('.section-spread');
-  const counter = document.getElementById('pagination-counter');
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
   const navLinks = document.querySelectorAll('.liquid-glass-nav .nav-link');
 
-  if (!container || sections.length === 0 || !counter) return;
-
-  const totalSections = sections.length;
-  let activeIndex = 0;
+  if (!container || sections.length === 0) return;
 
   const updatePaginationState = () => {
     const scrollPosition = container.scrollTop;
     const containerHeight = container.clientHeight;
     
-    // Determine active section index
     let currentIdx = 0;
     sections.forEach((section, index) => {
       const sectionTop = section.offsetTop;
@@ -219,39 +198,18 @@ function initPaginationWayfinding() {
       }
     });
 
-    activeIndex = currentIdx;
-
-    // Update Counter Text
-    counter.textContent = `${activeIndex + 1} / ${totalSections}`;
-
-    // Toggle active classes on sections for transitions
     sections.forEach((sec, idx) => {
-      sec.classList.toggle('active', idx === activeIndex);
+      sec.classList.toggle('active', idx === currentIdx);
     });
 
-    // Update Active Nav Link
     navLinks.forEach((link, idx) => {
-      link.classList.toggle('active', idx === activeIndex);
+      link.classList.toggle('active', idx === currentIdx);
     });
   };
 
   container.addEventListener('scroll', updatePaginationState, { passive: true });
   updatePaginationState();
 
-  // Scroll to next/prev section on click
-  nextBtn.addEventListener('click', () => {
-    if (activeIndex < totalSections - 1) {
-      sections[activeIndex + 1].scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-
-  prevBtn.addEventListener('click', () => {
-    if (activeIndex > 0) {
-      sections[activeIndex - 1].scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-
-  // Nav links smooth scroll handlers
   navLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -264,7 +222,7 @@ function initPaginationWayfinding() {
   });
 }
 
-/* ── 3. ACCESSIBLE CONTACT FORM SUBMISSION ──────────────────────────────── */
+/* ── 3. CONTACT FORM SUBMISSION ──────────────────────────────── */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
@@ -280,7 +238,6 @@ function initContactForm() {
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
     status.style.opacity = '0';
-    status.className = "form-status";
     
     const email = document.getElementById('form-email').value;
 
@@ -293,8 +250,8 @@ function initContactForm() {
       submitBtn.textContent = "Send Message";
       
       status.style.opacity = '1';
-      status.style.color = "var(--color-palm-green)";
-      status.textContent = `Message Sent! Thank you. I will reply to ${email} shortly.`;
+      status.style.color = "var(--color-accent)";
+      status.textContent = `Message Sent! I will reply to ${email} shortly.`;
       
       form.reset();
       
@@ -307,7 +264,7 @@ function initContactForm() {
       submitBtn.textContent = "Send Message";
       
       status.style.opacity = '1';
-      status.style.color = "var(--color-sunset-coral)";
+      status.style.color = "red";
       status.textContent = "Message failed. Please try again or email me directly.";
       
       setTimeout(() => {
@@ -315,88 +272,4 @@ function initContactForm() {
       }, 7000);
     });
   });
-}
-
-/* ── 4. CUSTOM HIGH-FIDELITY EASTER EGGS ────────────────────────────────── */
-function initEasterEggs() {
-  const nameLabel = document.getElementById('hero-name-target');
-  const statusIndicator = document.getElementById('footer-easter-egg');
-
-  if (nameLabel) {
-    nameLabel.style.cursor = 'pointer';
-    nameLabel.addEventListener('click', () => {
-      const insights = [
-        "Carleton CS Graduate (Major in BCS, Minor in Stats)",
-        "Founder of Indrith Studio - building interactive game worlds and physics simulations!",
-        "40% Better Survival Rates in Multi-Agent RL",
-        "1,000+ simulation episodes designed in NumPy & PPO!",
-        "Flask & Redis template engines deployed at leading Mumbai brokings",
-        "Real-time 3D music visualizations developed using OpenGL!",
-        "Deep Learning TableNet researcher for unstructured financial databases"
-      ];
-      
-      const randomInsight = insights[Math.floor(Math.random() * insights.length)];
-      
-      const banner = document.createElement('div');
-      banner.style.position = 'fixed';
-      banner.style.bottom = '110px';
-      banner.style.left = '50%';
-      banner.style.transform = 'translateX(-50%) translateY(50px)';
-      banner.style.background = 'var(--color-text)';
-      banner.style.color = 'var(--color-bg)';
-      banner.style.padding = '16px 32px';
-      banner.style.border = 'var(--fine-outline)';
-      banner.style.borderRadius = '20px';
-      banner.style.fontFamily = 'var(--font-display)';
-      banner.style.fontSize = '15px';
-      banner.style.fontWeight = '600';
-      banner.style.zIndex = '10000';
-      banner.style.opacity = '0';
-      banner.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-      banner.textContent = randomInsight;
-      
-      document.body.appendChild(banner);
-      
-      banner.offsetWidth; // force reflow
-      
-      banner.style.transform = 'translateX(-50%) translateY(0)';
-      banner.style.opacity = '1';
-      
-      setTimeout(() => {
-        banner.style.transform = 'translateX(-50%) translateY(-20px)';
-        banner.style.opacity = '0';
-        setTimeout(() => {
-          banner.remove();
-        }, 500);
-      }, 3500);
-    });
-  }
-
-  if (statusIndicator) {
-    let altThemeActive = false;
-    statusIndicator.addEventListener('click', () => {
-      altThemeActive = !altThemeActive;
-      const root = document.documentElement;
-      
-      if (altThemeActive) {
-        // Retro Cyberpunk / High-Contrast Neon mode
-        root.style.setProperty('--color-bg', '#0A0A0F');
-        root.style.setProperty('--color-text', '#39FF14'); // Neon Green
-        root.style.setProperty('--color-text-muted', '#00FFFF'); // Neon Cyan
-        root.style.setProperty('--color-sky-foam', '#12121A');
-        root.style.setProperty('--color-deep-blue', '#FF007F'); // Neon Pink
-        root.style.setProperty('--color-cloud-white', '#181824');
-        statusIndicator.textContent = "[System: Diagnostic Synthesis Mode]";
-      } else {
-        // Reset properties
-        root.style.removeProperty('--color-bg');
-        root.style.removeProperty('--color-text');
-        root.style.removeProperty('--color-text-muted');
-        root.style.removeProperty('--color-sky-foam');
-        root.style.removeProperty('--color-deep-blue');
-        root.style.removeProperty('--color-cloud-white');
-        statusIndicator.textContent = "[System Status: Active]";
-      }
-    });
-  }
 }
